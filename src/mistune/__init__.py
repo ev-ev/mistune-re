@@ -95,5 +95,5 @@ __all__ = [
     'html', 'create_markdown', 'markdown',
 ]
 
-__version__ = '3.0.2'
+__version__ = '3.0.2.0'
 __homepage__ = 'https://mistune.lepture.com/'

@@ -88,7 +88,16 @@ class HTMLRenderer(BaseRenderer):
     def image(self, text: str, url: str, title: Optional[str] = None) -> str:
         src = self.safe_url(url)
         alt = escape_text(striptags(text))
-        s = '<img src="' + src + '" alt="' + alt + '"'
+        try:
+            alt = int(alt)
+        except:
+            alt = None
+            
+        s = '<img src="' + src + '"'
+        
+        if (alt):
+            s += ' style="width:{}%;"'.format(alt)
+        
         if title:
             s += ' title="' + safe_entity(title) + '"'
         return s + ' />'
